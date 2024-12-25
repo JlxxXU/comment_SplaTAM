@@ -94,7 +94,7 @@ def get_pointcloud(color, depth, intrinsics, w2c, transform_pts=True,
     CY = intrinsics[1][2]
     FX = intrinsics[0][0]
     FY = intrinsics[1][1]
-
+#内参解析
     # Compute indices of pixels
     # 计算像素坐标和深度信息：
 
@@ -149,7 +149,7 @@ def get_pointcloud(color, depth, intrinsics, w2c, transform_pts=True,
     else:
         return point_cld
 
-
+    #初始化高斯分布参数
 def initialize_params(init_pt_cld, num_frames, mean3_sq_dist):
     num_pts = init_pt_cld.shape[0]
     means3D = init_pt_cld[:, :3] # [num_gaussians, 3]
