@@ -731,7 +731,8 @@ def rgbd_slam(config: dict):
         checkpoint_time_idx = 0
     
     # Iterate over Scan （迭代扫描，迭代处理RGB-D帧，进行跟踪（Tracking）和建图（Mapping））
-    for time_idx in tqdm(range(checkpoint_time_idx, num_frames)): #通过循环迭代处理 RGB-D 帧，循环的起始索引是 checkpoint_time_idx（也就是是否从某帧开始，一般都是0开始），终止索引是 num_frames。
+    for time_idx in tqdm(range(checkpoint_time_idx, num_frames)): #通过循环迭代处理 RGB-D 帧，
+        #循环的起始索引是 checkpoint_time_idx（也就是是否从某帧开始，一般都是0开始），终止索引是 num_frames。
         # Load RGBD frames incrementally instead of all frames
         color, depth, _, gt_pose = dataset[time_idx] #从数据集 dataset 中加载 RGB-D 帧的颜色、深度、姿态等信息。
         # Process poses
